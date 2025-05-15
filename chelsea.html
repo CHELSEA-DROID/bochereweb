@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chelsea Fits</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .hidden {
+      display: none;
+    }
+    #toggleProductsBtn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo-text">CHELSEA FITS</div>
+      <img src="logo.jpg" alt="Chelsea Fits logo with purple swoosh" class="logo-img" />
+      <nav class="nav">
+        <a href="#about" class="nav-link">ABOUT</a>
+        <a href="#shop" class="nav-link">SHOP</a>
+        <a href="#new-arrivals" class="nav-link">NEW ARRIVALS</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <p class="font-italian large-text">CRAFTED TO</p>
+          <p class="font-italian large-text">SEAMLESSLY BLEND</p>
+          <p class="font-italian large-text">
+            WITH <span class="font-rocksalt">FASHION</span>
+          </p>
+          <p class="font-italian large-text">
+            AND <span class="font-rocksalt">FUNCTION</span>
+          </p>
+        </div>
+        <div class="hero-image">
+          <img src="HPpgoto.jpg" alt="Two models wearing brown hoodies and light pants posing in a studio with a white background" />
+        </div>
+      </section>
+
+      <section class="products" id="shop">
+        <h1 class="products-title">THIS SEASON’S BEST SELLER</h1>
+        <div class="products-grid">
+          <div class="product-item">
+            <img src="black dunks.jpg" alt="Pair of black noir Nike dunk sneakers on white background" />
+            <p class="product-desc">Black noir nike dunks<br />$30</p>
+          </div>
+          <div class="product-item">
+            <img src="green dunk.jpg" alt="Pair of green and white Nike dunk sneakers on white background" />
+            <p class="product-desc">Green nike dunks<br />$28</p>
+          </div>
+          <div class="product-item">
+            <img src="black dress.jpg" alt="Black dress with puffed long sleeves and flared skirt on white background" />
+          </div>
+          <div class="product-item">
+            <img src="blue hoodie.jpg" alt="Blue hoodie with zipper and drawstrings on white background" />
+            <p class="product-desc">Blue hoodie<br />$15</p>
+          </div>
+          <div class="product-item">
+            <img src="platform heel.jpg" alt="Pair of black platform cat heels with ankle straps on white background" />
+            <p class="product-desc">Black cat heels<br />$25</p>
+          </div>
+          <div class="product-item">
+            <img src="trouser.jpg" alt="Pair of blue jeans with bow details on white background" />
+            <p class="product-desc">Bow jeans<br />$20</p>
+          </div>
+          <div class="product-item">
+            <img src="black dunks.jpg" alt="Pair of black noir Nike dunk sneakers on white background" />
+            <p class="product-desc">Black noir nike dunks<br />$30</p>
+          </div>
+          <div class="product-item">
+            <img src="green dunk.jpg" alt="Pair of green and white Nike dunk sneakers on white background" />
+            <p class="product-desc">Green nike dunks<br />$28</p>
+          </div>
+          <div class="product-item">
+            <img src="black dress.jpg" alt="Black dress with puffed long sleeves and flared skirt on white background" />
+          </div>
+          <div class="product-item">
+            <img src="blue hoodie.jpg" alt="Blue hoodie with zipper and drawstrings on white background" />
+            <p class="product-desc">Blue hoodie<br />$15</p>
+          </div>
+          <div class="product-item">
+            <img src="platform heel.jpg" alt="Pair of black platform cat heels with ankle straps on white background" />
+            <p class="product-desc">Black cat heels<br />$25</p>
+          </div>
+          <div class="product-item">
+            <img src="trouser.jpg" alt="Pair of blue jeans with bow details on white background" />
+            <p class="product-desc">Bow jeans<br />$20</p>
+          </div>
+        </div>
+        <button id="toggleProductsBtn" style="display:none;">Show More</button>
+      </section>
+
+      <section class="about" id="about">
+        <h2 class="about-title">ABOUT CHELSEA FITS</h2>
+        <p class="about-text">
+          Chelsea Fits is dedicated to crafting high-quality fashion that seamlessly blends style and function. Our collections are designed for those who appreciate timeless elegance and modern comfort. We believe in sustainable practices and delivering exceptional value to our customers.
+        </p>
+        <p class="about-text">
+          Explore our range of apparel and accessories, carefully curated to meet the demands of everyday life while keeping you effortlessly stylish.
+        </p>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const productsGrid = document.querySelector('.products-grid');
+      const products = productsGrid.querySelectorAll('.product-item');
+      const toggleBtn = document.getElementById('toggleProductsBtn');
+      const maxVisible = 8;
+      let showingAll = false;
+
+      if (products.length > maxVisible) {
+        // Hide products beyond maxVisible
+        for (let i = maxVisible; i < products.length; i++) {
+          products[i].classList.add('hidden');
+        }
+        toggleBtn.style.display = 'inline-block';
+
+        toggleBtn.addEventListener('click', function () {
+          if (!showingAll) {
+            for (let i = maxVisible; i < products.length; i++) {
+              products[i].classList.remove('hidden');
+            }
+            toggleBtn.textContent = 'Show Less';
+            showingAll = true;
+          } else {
+            for (let i = maxVisible; i < products.length; i++) {
+              products[i].classList.add('hidden');
+            }
+            toggleBtn.textContent = 'Show More';
+            showingAll = false;
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
